@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Product data
   try {
     const tagData = await Tag.findAll({
-      include: [{ model: Product, through: ProductTag, as: 'tags_products' }],
+      include: [{ model: Product, through: ProductTag, as: 'products' }],
     });
     res.status(200).json(tagData);
   } catch (err) {
@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Product data
   try {
     const tagData = await Tag.findByPk(req.params.id, {
-      include: [{ model: Product, through: ProductTag, as: 'tags_products' }]
+      include: [{ model: Product, through: ProductTag, as: 'products' }]
     });
     //If no id was found
     if (!tagData) {
@@ -38,8 +38,9 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   // create a new tag
   try {
-    const tagData = await Category.create({
+    const tagData = await Tag.create({
       //req.body
+      //id: req.body.id,
       tag_name: req.body.tag_name,
     });
 
@@ -61,11 +62,11 @@ router.put('/:id', async (req, res) => {
         }
       });
     //if id was not found,
-    if (!newTagData[0]) {
+    if (!newTagData) {
       res.status(404).json({ message: 'No tag was found with that id!' });
       return;
     }
-    res.status(200).json(newCategoryData);
+    res.status(200).json(newTagData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -80,7 +81,7 @@ router.delete('/:id', async (req, res) => {
       }
     });
     //if id was not found,
-    if (!tagData[0]) {
+    if (!tagData) {
       res.status(404).json({ message: 'No tag was found with that id!' });
       return;
     }
