@@ -1,12 +1,10 @@
-# 13 Object-Relational Mapping (ORM): E-Commerce Back End
+# E-Commerce Back End
 
-## Your Task
+## Task
 
 Internet retail, also known as **e-commerce**, is the largest sector of the electronics industry, generating an estimated $29 trillion in 2019. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to their prevalence, understanding the fundamental architecture of these platforms will benefit you as a full-stack web developer.
 
-Your task is to build the back end for an e-commerce site by modifying starter code. You’ll configure a working Express.js API to use Sequelize to interact with a MySQL database.
-
-Because this application won’t be deployed, you’ll also need to provide a link to a walkthrough video that demonstrates its functionality and all of the acceptance criteria being met. You’ll need to submit a link to the video and add it to the readme of your project.
+The task for this project is to build the back end for an e-commerce site by modifying starter code and to configure a working Express.js API to use Sequelize to interact with a MySQL database.
 
 ## User Story
 
@@ -56,9 +54,11 @@ You’ll need to use the [MySQL2](https://www.npmjs.com/package/mysql2) and [Seq
 
 Use the `schema.sql` file in the `db` folder to create your database with MySQL shell commands. Use environment variables to store sensitive data like your MySQL username, password, and database name.
 
-### Database Models
+## Demonstration & Description
 
-Your database should contain the following four models, including the requirements listed for each model:
+ * [Link to Video Demonstration]()
+
+## Database Models & Association
 
 * `Category`
 
@@ -160,49 +160,48 @@ Your database should contain the following four models, including the requiremen
 
     * References the `Tag` model's `id`.
 
-### Associations
-
-You'll need to execute association methods on your Sequelize models to create the following relationships between them:
 
 * `Product` belongs to `Category`, and `Category` has many `Product` models, as a category can have multiple products but a product can only belong to one category.
 
 * `Product` belongs to many `Tag` models, and `Tag` belongs to many `Product` models. Allow products to have multiple tags and tags to have many products by using the `ProductTag` through model.
 
-> **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
+## How to Use
 
-### Fill Out the API Routes to Perform RESTful CRUD Operations
+**NOTE** [Insomnia](https://insomnia.rest) was used to test API request for this code. Therefore, it is recommended to for user to use Insomnia in order to test this project. (Also MySQL server and npm must be installed to run this code.)
 
-Fill out the unfinished routes in `product-routes.js`, `tag-routes.js`, and `category-routes.js` to perform create, read, update, and delete operations using your Sequelize models.
+ * In main folder(Develop), install all of the npm package by using the following command:
+     
+     ```bash
+    npm i
+    ```
+ * Next, source SQL file from MySQL:
+   
+   ```
+    source db/schema.sql
+    ```
+* Seed data to database model (you can use 'npm run seed' or run index.js file directly from seeds folder directly by doing 'node seeds/index.js'):
 
-Note that the functionality for creating the many-to-many relationship for products has already been completed for you.
+     ```bash
+    npm run seed
+    ```
+* Then, invoke the application with using the following command:
 
-> **Hint**: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out what `req.body` will be for POST and PUT routes!
+     ```bash
+    node server.js
+    ```
 
-### Seed the Database
+* Once the server starts listening, user can peform RESTful CRUD operation (make GET, POST, PUT(update), and DELETE request) on this three different API routes: /api/categories, /api/products, /api/tags
+  * There are also GET, PUT, DELETE reqeust by id (/api/categories/:id, /api/products/:id, /api/tags/:id) 
 
-After creating the models and routes, run `npm run seed` to seed data to your database so that you can test your routes.
 
-### Sync Sequelize to the Database on Server Start
+## Credits
+ * npm package [MySQL2](https://www.npmjs.com/package/mysql2)
+ * npm package [express.js]()
+ * npm package [Sequelize](https://www.npmjs.com/package/sequelize)
+ * npm package [dotenv](https://www.npmjs.com/package/dotenv)
+ * [Insomnia](https://insomnia.rest)
 
-Create the code needed in `server.js` to sync the Sequelize models to the MySQL database on server start.
 
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria: 
-
-### Deliverables: 10%
-
-* The GitHub repository containing your application code.
 
 ### Walkthrough Video: 37%
 
@@ -222,39 +221,7 @@ This Challenge is graded based on the following criteria:
 
 * The walkthrough video must demonstrate POST, PUT, and DELETE routes for categories, products, and tags being tested in Insomnia.
 
-### Technical Acceptance Criteria: 40%
 
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Connects to a MySQL database using the [MySQL2](https://www.npmjs.com/package/mysql) and [Sequelize](https://www.npmjs.com/package/sequelize) packages.
-
-  * Stores sensitive data, like a user’s MySQL username, password, and database name, using environment variables through the [dotenv](https://www.npmjs.com/package/dotenv) package.
-
-  * Syncs Sequelize models to a MySQL database on the server start.
-
-  * Includes column definitions for all four models outlined in the Challenge instructions.
-
-  * Includes model associations outlined in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a readme describing the project.
 
 ---
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
