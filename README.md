@@ -56,7 +56,7 @@ Use the `schema.sql` file in the `db` folder to create your database with MySQL 
 
 ## Demonstration & Description
 
- * [Link to Video Demonstration]()
+ * [Link to Video Demonstration](https://drive.google.com/file/d/1-paiR5s0zGK7hFPH-zT53lfYvKbyWmJl/view)
 
 ## Database Models & Association
 
@@ -190,8 +190,8 @@ Use the `schema.sql` file in the `db` folder to create your database with MySQL 
     node server.js
     ```
 
-* Once the server starts listening, user can peform RESTful CRUD operation (make GET, POST, PUT(update), and DELETE request) on this three different API routes: /api/categories, /api/products, /api/tags
-  * There are also GET, PUT, DELETE reqeust by id (/api/categories/:id, /api/products/:id, /api/tags/:id) 
+* Once the server starts listening, user can peform RESTful CRUD operation (make GET(retrieve data), POST(add data), PUT(update data), and DELETE(delete data) request) on this three different API routes: /api/categories, /api/products, /api/tags
+  * GET method also can be reqeusted with id. However, **PUT and DELETE** requests must be made with id to target specific data to update/delete (/api/categories/:id, /api/products/:id, /api/tags/:id) 
 
 
 ## Credits
