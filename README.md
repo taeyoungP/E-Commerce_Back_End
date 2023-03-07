@@ -32,7 +32,7 @@ THEN I am able to successfully create, update, and delete data in my database
 
 ## Video Demonstration
 
- * [Link to Video Demonstration](https://drive.google.com/file/d/1-paiR5s0zGK7hFPH-zT53lfYvKbyWmJl/view)
+ * [Link to Video Demonstration](https://drive.google.com/file/d/1oTvCKmURUcKOzkbxIQ930YL828oy24wI/view)
 
 
 ## Database Models & Association
@@ -151,7 +151,7 @@ THEN I am able to successfully create, update, and delete data in my database
      ```bash
     npm i
     ```
- * Next, source SQL file from MySQL:
+ * Next, source SQL file from MySQL to create database:
    
    ```
     source db/schema.sql
@@ -161,17 +161,18 @@ THEN I am able to successfully create, update, and delete data in my database
      ```bash
     npm run seed
     ```
-* Then, invoke the application with using the following command:
+* Then, invoke the application(server) with using the following command:
 
      ```bash
     node server.js
     ```
 
-* Once the server starts listening, user can peform RESTful CRUD operation (make GET(retrieve data), POST(add data), PUT(update data), and DELETE(delete data) request) on this three different API routes: /api/categories, /api/products, /api/tags
+* Once the server starts listening, user can peform RESTful CRUD operation (make GET(retrieve data), POST(add data), PUT(update data), and DELETE(delete data) requests) on this three different API routes: /api/categories, /api/products, /api/tags
   * GET method also can be reqeusted with id. However, **PUT and DELETE** requests must be made with id to target specific data to update/delete (/api/categories/:id, /api/products/:id, /api/tags/:id) 
 
   ![CRUD OPERATION Example](./Assets/imageExample.png)
 
+(**NOTE for testing in Insomnia** When POST or PUT data, use JSON format with correct fields inputs as they are shown in video demonstration.)
 
 ## Credits
  * npm package [MySQL2](https://www.npmjs.com/package/mysql2)
